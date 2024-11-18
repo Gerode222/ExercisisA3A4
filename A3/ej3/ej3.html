@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CREATE TABLE examples</title>
+<link rel="stylesheet" href="ej3.css">
+</head>
+<body>
+<h1>CREATE TABLE examples</h1>
+<ul>
+<li><a href="#basic">Basic CREATE TABLE statement</a></li>
+<li><a href="#storage">Creating a table with a particular storage engine</a></li>
+<li><a href="#auto">Creating a table with auto increment</a></li>
+<li><a href="#timestamp">Creating a table with the current timestamp</a></li>
+<li><a href="#timestamp-now">Creating a table with TIMESTAMP DEFAULT NOW()</a></li>
+<li><a href="#view">Viewing a table definition</a></li>
+</ul>
+
+<h2 id="basic">Basic CREATE TABLE statement</h2>
+<p>The most basic CREATE TABLE statement creates a table with a few columns, defining what type of data is stored in each column.</p>
+<pre><code>CREATE TABLE customers (
+    id INT,
+    name VARCHAR(255),
+    email VARCHAR(255)
+);
+</code></pre>
+
+<h2 id="storage">Creating a table with a particular storage engine</h2>
+<p>MySQL provides a wealth of different storage engines with differing tradeoffs. The default, and most widely used is InnoDB. Other storage types offer specific behaviors. </p>
+<pre><code>CREATE TABLE customers (
+    id INT,
+    name VARCHAR(255),
+    email VARCHAR(255)
+) ENGINE=MyISAM;
+</code></pre>
+
+<p>The same is going with `MEMORY`, `CSV` and many more. To understand the preferred method of defining the storage type, use <a href="https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html">https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html</a>  You can inspect what table is set as default using:</p>
+<pre><code>SHOW VARIABLES LIKE 'storage_engine';
+</code></pre>
+
+<h
